@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Júlia Emanuela — 15 Anos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ── Variables ── */
+    :root {
+      --bg-start:        #fdf0f3;
+      --bg-mid:          #f9e0e8;
+      --bg-end:          #fce8ee;
+      --rose-gold:       #c9856a;
+      --rose-gold-light: #e8b89a;
+      --rose-gold-dark:  #a0634a;
+      --pink-glow:       #e8a0b4;
+      --pink-soft:       #f2c8d4;
+      --pink-deep:       #d4849c;
+      --glass-bg:        rgba(255, 255, 255, 0.45);
+      --glass-border:    rgba(201, 133, 106, 0.35);
+      --text-body:       #5a2d3a;
+      --text-muted:      #8a5060;
+      --gold-accent:     #c9a84c;
+      --gold-light:      #e8d08a;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #fdf0f3 0%, #f5d5e0 30%, #fce8ee 60%, #f0c8d8 100%);
+      background-size: 400% 400%;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      color: var(--text-body);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2.5rem 1rem 5rem;
+      position: relative;
+      animation: bgFadeIn 1.2s ease both, gradientShift 12s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0%   50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0%   50%; }
+    }
+
+    @keyframes bgFadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── Animated gradient mesh overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        125deg,
+        rgba(253, 220, 232, 0.55) 0%,
+        rgba(249, 210, 224, 0.45) 30%,
+        rgba(244, 195, 215, 0.50) 60%,
+        rgba(252, 232, 238, 0.40) 100%
+      );
+      background-size: 300% 300%;
+      animation: meshShift 14s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes meshShift {
+      0%   { background-position: 0%   50%; }
+      50%  { background-position: 100% 20%; }
+      100% { background-position: 30%  90%; }
+    }
+
+    /* ── Marble gold vein streaks ── */
+    .marble-vein {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .marble-vein::before,
+    .marble-vein::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(90deg, transparent, #c9a84c, #e8d08a, #c9a84c, transparent);
+    }
+    .vein-1::before {
+      width: 130vw; height: 3px;
+      top: 18vh; left: -15vw;
+      transform: rotate(-7deg);
+      opacity: 0.45;
+      filter: blur(1px);
+    }
+    .vein-1::after {
+      width: 130vw; height: 6px;
+      top: 18.5vh; left: -15vw;
+      transform: rotate(-7deg);
+      opacity: 0.18;
+      filter: blur(4px);
+    }
+    .vein-2::before {
+      width: 90vw; height: 2px;
+      top: 55vh; left: 10vw;
+      transform: rotate(5deg);
+      opacity: 0.35;
+      filter: blur(1px);
+    }
+    .vein-2::after {
+      width: 90vw; height: 5px;
+      top: 55.5vh; left: 10vw;
+      transform: rotate(5deg);
+      opacity: 0.14;
+      filter: blur(4px);
+    }
+    .vein-3::before {
+      width: 70vw; height: 2px;
+      top: 82vh; left: -5vw;
+      transform: rotate(-12deg);
+      opacity: 0.30;
+      filter: blur(1px);
+    }
+    .vein-3::after {
+      width: 70vw; height: 5px;
+      top: 82.5vh; left: -5vw;
+      transform: rotate(-12deg);
+      opacity: 0.12;
+      filter: blur(4px);
+    }
+    .vein-4::before {
+      width: 50vw; height: 2px;
+      top: 38vh; right: 0; left: auto;
+      transform: rotate(9deg);
+      opacity: 0.28;
+      filter: blur(1px);
+    }
+    .vein-4::after {
+      width: 50vw; height: 4px;
+      top: 38.5vh; right: 0; left: auto;
+      transform: rotate(9deg);
+      opacity: 0.12;
+      filter: blur(3px);
+    }
+
+    /* ── Particle canvas layer ── */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── Main wrapper ── */
+    main {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    /* ── Glass card ── */
+    article {
+      background: rgba(255, 255, 255, 0.50);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(201, 133, 106, 0.30);
+      border-radius: 24px;
+      padding: 3rem 2rem 3.5rem;
+      box-shadow:
+        0 8px 60px rgba(201, 133, 106, 0.20),
+        0 2px 20px rgba(232, 160, 180, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.80);
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Inner top glow */
+    article::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(201, 168, 76, 0.7),
+        rgba(232, 184, 154, 0.5),
+        rgba(201, 168, 76, 0.7),
+        transparent
+      );
+    }
+
+    /* Subtle corner glow blobs inside card */
+    article::after {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(232, 160, 180, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── Top ornament ── */
+    .ornament-top {
+      text-align: center;
+      color: var(--gold-accent);
+      font-size: 0.7rem;
+      letter-spacing: 0.6em;
+      margin-bottom: 1.8rem;
+      opacity: 0.8;
+      animation: fadeInDown 0.6s ease 0.5s both;
+      user-select: none;
+    }
+    .ornament-top span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--gold-accent);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      margin: 0 6px;
+      vertical-align: middle;
+    }
+
+    /* ── Name heading ── */
+    .name-wrap {
+      text-align: center;
+      padding: 0.6rem 0 0.8rem;
+      margin-bottom: 0.5rem;
+      overflow: visible;
+      animation: fadeInDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+
+    .name-heading {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3rem, 12vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: normal;
+      padding: 0.3em 0.2em 0.2em 0.2em;
+      overflow: visible;
+      display: block;
+      background: linear-gradient(
+        180deg,
+        #f0d4a8 0%,
+        #d4a06a 30%,
+        #c08850 55%,
+        #d4a06a 80%,
+        #f0d4a8 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 1px 2px rgba(160, 100, 60, 0.20));
+    }
+
+    /* ── Subtitle ── */
+    .subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 200;
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: fadeInDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+    }
+
+    /* ── Keyframes shared ── */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 1.8rem 0;
+      animation: fadeInDown 0.7s ease 0.9s both;
+      user-select: none;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(201, 133, 106, 0.4)
+      );
+    }
+    .divider::after {
+      background: linear-gradient(
+        to left,
+        transparent,
+        rgba(201, 133, 106, 0.4)
+      );
+    }
+    .divider-diamond {
+      color: var(--gold-accent);
+      font-size: 0.65rem;
+      padding: 0 0.7rem;
+      opacity: 0.9;
+      letter-spacing: 0.2em;
+    }
+
+    /* ── Scroll-animated paragraphs ── */
+    p {
+      font-size: 1.05rem;
+      line-height: 1.88;
+      color: var(--text-body);
+      margin-bottom: 1.3rem;
+      font-weight: 300;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    p.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* ── Blockquote ── */
+    blockquote {
+      position: relative;
+      margin: 2rem 0;
+      padding: 1.5rem 1.4rem 1.4rem 1.6rem;
+      background: rgba(255, 220, 230, 0.40);
+      border-left: 3px solid;
+      border-image: linear-gradient(
+        180deg,
+        #c9a84c,
+        #e8b89a,
+        #c9856a
+      ) 1;
+      border-radius: 0 12px 12px 0;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow:
+        0 4px 24px rgba(201, 133, 106, 0.12),
+        inset 0 0 20px rgba(201, 133, 106, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.50);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    blockquote.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: -0.1rem;
+      left: 0.8rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--gold-accent);
+      opacity: 0.35;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    blockquote p {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.05rem;
+      color: #7a3d50;
+      line-height: 1.85;
+      margin-bottom: 0.6rem;
+      /* override scroll animation for children — they inherit blockquote animation */
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    blockquote cite {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--gold-accent);
+      font-style: normal;
+      text-align: right;
+      margin-top: 0.5rem;
+      opacity: 0.9;
+    }
+
+    /* ── Closing heart ── */
+    .closing-ornament {
+      text-align: center;
+      margin-top: 2.2rem;
+      user-select: none;
+    }
+    .closing-heart {
+      display: block;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      filter: drop-shadow(0 2px 8px rgba(201, 133, 106, 0.45));
+      background: linear-gradient(135deg, var(--rose-gold) 0%, var(--rose-gold-light) 60%, var(--rose-gold-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 0.4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .closing-heart.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Bottom ornament ── */
+    .ornament-bottom {
+      text-align: center;
+      margin-top: 1.4rem;
+      user-select: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .ornament-bottom.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .ornament-bottom span {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--gold-accent);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      margin: 0 5px;
+      vertical-align: middle;
+      opacity: 0.65;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 390px) {
+      article {
+        padding: 2.4rem 1.4rem 2.8rem;
+      }
+      .name-heading {
+        font-size: clamp(2.7rem, 15vw, 3.5rem);
+      }
+    }
+
+    @media (min-width: 480px) {
+      body {
+        padding: 3.5rem 1.5rem 5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Particle layer -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- Marble gold vein streaks -->
+  <div class="marble-vein vein-1" aria-hidden="true"></div>
+  <div class="marble-vein vein-2" aria-hidden="true"></div>
+  <div class="marble-vein vein-3" aria-hidden="true"></div>
+  <div class="marble-vein vein-4" aria-hidden="true"></div>
+
+  <main>
+    <article>
+
+      <!-- Top ornament -->
+      <div class="ornament-top" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+
+      <!-- Name -->
+      <div class="name-wrap">
+        <h1 class="name-heading">Júlia Emanuela</h1>
+      </div>
+
+      <!-- Subtitle -->
+      <p class="subtitle">15 Anos &nbsp;·&nbsp; Lampas Hodos</p>
+
+      <!-- Divider -->
+      <div class="divider" aria-hidden="true">
+        <span class="divider-diamond">◆ ◆ ◆</span>
+      </div>
+
+      <!-- Body content -->
+      <section>
+
+        <p>
+          Oiii 💛 Se você está lendo isso, é porque está guardado no meu coração e fez parte da minha história.
+          Hoje, comemoro meus 15 anos — não apenas como uma data comemorativa, mas como um lembrete do quanto Deus,
+          o nosso Pai, tem sido importante na minha vida durante todos esses anos.
+        </p>
+
+        <p>
+          Você fez parte de tudo isso comigo, por isso quero agradecer primeiramente a Deus e a cada um de vocês
+          que estiveram ao meu lado nesse tempo de amadurecimento.
+        </p>
+
+        <p>
+          Talvez, olhando para o tema, você não tenha entendido o significado de <em>"Lampas Hodos"</em>. Esta
+          expressão vem do grego e significa <em>"A luz que ilumina o meu caminho"</em>. Em Salmos 119:105, diz:
+        </p>
+
+        <blockquote>
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p>
+            "Lâmpada para os meus pés é a tua palavra e luz para o meu caminho."
+          </p>
+          <cite>— Salmos 119:105</cite>
+        </blockquote>
+
+        <p>
+          Este aniversário não é apenas mais um; é um aniversário profético. Houve direção de Deus em cada passo:
+          desde cada detalhe do ambiente até as pessoas que seriam convidadas. Tudo foi pensado para que não seja
+          apenas uma festa, mas para que cada detalhe aponte para Cristo, aquele que deu tudo por nós sem merecermos.
+        </p>
+
+        <p>
+          Então, neste dia especial pelo qual eu tanto sonhei, sinta-se abraçado e especial. E falando em sonho,
+          Salmos 126:1-3 diz:
+        </p>
+
+        <blockquote>
+          <span class="quote-mark" aria-hidden="true">"</span>
+          <p>
+            "Quando o Senhor trouxe do cativeiro os que voltaram a Sião, estávamos como os que sonham. Então a nossa
+            boca se encheu de riso e a nossa língua de cântico; então se dizia entre as nações: Grandes coisas fez
+            o Senhor a estes. Grandes coisas fez o Senhor por nós, pelas quais estamos alegres."
+          </p>
+          <cite>— Salmos 126:1-3</cite>
+        </blockquote>
+
+        <p>
+          Essa passagem resume tudo: um sonho grande para mim e impossível aos olhos dos homens. Realizar uma festa
+          como esta não é fácil, pois consome tempo, esforço e investimento, mas o Senhor honra os Seus filhos.
+          Deus tem me abençoado em todo tempo e em todas as áreas.
+        </p>
+
+        <p>
+          Hoje, sou grata a Deus e a você por me ajudarem a realizar esse sonho. Celebre comigo hoje, porque a
+          alegria do Senhor é a nossa força! 😉
+        </p>
+
+      </section>
+
+      <!-- Divider -->
+      <div class="divider" aria-hidden="true">
+        <span class="divider-diamond">◆ ◆ ◆</span>
+      </div>
+
+      <!-- Closing -->
+      <div class="closing-ornament">
+        <span class="closing-heart">Júlia ♡</span>
+      </div>
+
+      <!-- Bottom ornament -->
+      <div class="ornament-bottom" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+
+    </article>
+  </main>
+
+  <script>
+    /* ── Particle system ── */
+    (function () {
+      const canvas = document.getElementById('particles');
+      const ctx = canvas.getContext('2d');
+
+      const COLORS = [
+        'rgba(201, 168, 76,  VAL)',
+        'rgba(232, 208, 138, VAL)',
+        'rgba(212, 132, 156, VAL)',
+        'rgba(232, 184, 154, VAL)',
+        'rgba(201, 133, 106, VAL)',
+      ];
+
+      let W, H, particles;
+
+      function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+
+      function rand(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      function createParticle() {
+        const colorTemplate = COLORS[Math.floor(Math.random() * COLORS.length)];
+        return {
+          x:       rand(0, W),
+          y:       rand(H * 0.1, H),
+          r:       rand(1, 2.8),
+          alpha:   rand(0.2, 0.75),
+          speed:   rand(0.18, 0.55),
+          drift:   rand(-0.18, 0.18),
+          pulse:   rand(0, Math.PI * 2),
+          pulseSpeed: rand(0.008, 0.022),
+          color:   colorTemplate,
+        };
+      }
+
+      function initParticles() {
+        particles = [];
+        const count = Math.min(48, Math.floor((W * H) / 18000));
+        for (let i = 0; i < count; i++) {
+          particles.push(createParticle());
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        for (const p of particles) {
+          p.pulse += p.pulseSpeed;
+          const alpha = p.alpha * (0.7 + 0.3 * Math.sin(p.pulse));
+          const color = p.color.replace('VAL', alpha.toFixed(2));
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.fill();
+
+          p.y  -= p.speed;
+          p.x  += p.drift;
+
+          if (p.y < -10) {
+            p.y = H + 10;
+            p.x = rand(0, W);
+          }
+          if (p.x < -10) p.x = W + 10;
+          if (p.x > W + 10) p.x = -10;
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      initParticles();
+      draw();
+      window.addEventListener('resize', () => { resize(); initParticles(); });
+    })();
+
+    /* ── Scroll-reveal via IntersectionObserver ── */
+    (function () {
+      const targets = document.querySelectorAll('p, blockquote, .closing-heart, .ornament-bottom');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      targets.forEach((el) => observer.observe(el));
+
+      /* Trigger elements already in view on load */
+      setTimeout(() => {
+        targets.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.92) {
+            el.classList.add('visible');
+          }
+        });
+      }, 900);
+    })();
+  </script>
+
+</body>
+</html>
